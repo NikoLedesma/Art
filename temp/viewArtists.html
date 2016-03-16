@@ -5,5 +5,65 @@
 		<small>({{message}})</small>
 	</h1>
 
+	<table class="table" >
+		<thead> 
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Id</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="artist in artists|orderBy:'name'">
+				<td>{{ artist.name }}</td>
+				<td>{{ artist.email }}</td>
+				<td>{{ artist.phone }}</td>
+				<td>{{ artist.id }}</td>
+				<td><button type="button" class="btn btn-primary" ng-click="viewBiography(artist.id)">Bio</button>
+					<button type="button" class="btn btn-primary" >Paintings</button></td>
+				</tr>
+			</tbody>
+		</table>
 
-</div>
+
+		<div ng-show="valueBio">
+			<h2>Biography</h2>
+			<h4>Name:{{nameArtist}}</h4>
+			<p>Suppose end get boy warrant general natural. Delightful met sufficient projection ask. Decisively everything principles if preference do impression of. Preserved oh so difficult repulsive on in household. In what do miss time be. Valley as be appear cannot so by. Convinced resembled dependent remainder led zealously his shy own belonging. Always length letter adieus add number moment she. Promise few compass six several old offices removal parties fat. Concluded rapturous it intention perfectly daughters is as. 
+
+				Denote simple fat denied add worthy little use. As some he so high down am week. Conduct esteems by cottage to pasture we winding. On assistance he cultivated considered frequently. Person how having tended direct own day man. Saw sufficient indulgence one own you inquietude sympathize. 
+
+				Subjects to ecstatic children he. Could ye leave up as built match. Dejection agreeable attention set suspected led offending. Admitting an performed supposing by. Garden agreed matter are should formed temper had. Full held gay now roof whom such next was. Ham pretty our people moment put excuse narrow. Spite mirth money six above get going great own. Started now shortly had for assured hearing expense. Led juvenile his laughing speedily put pleasant relation offering. 
+
+				Ecstatic advanced and procured civility not absolute put continue. Overcame breeding or my concerns removing desirous so absolute. My melancholy unpleasing imprudence considered in advantages so impression. Almost unable put piqued talked likely houses her met. Met any nor may through resolve entered. An mr cause tried oh do shade happy. </p>
+				<button type="button" class="btn btn-primary" ng-click="valueBio=false">Back</button></td>				
+			</div>
+
+
+
+		</div>
+
+
+<!--{
+  "id_galery":0,
+  
+  "artist_art": [
+    {
+      "id_artist":3,
+      "images":[
+        {"source":"www.image1.jpg","title":"xxxx"},
+        {"source":"www.image2.jpg","title":"xxxx"},
+        {"source":"image3.jpg","title":"xxxx"}]
+    },
+    {
+      "id_artist":6,
+      "images":[
+        {"source":"imageA.jpg","title":"xxxx"},
+        {"source":"imageB.jpg","title":"xxxx"}]
+    }
+  ],
+  
+  "description_galery":"abstract galery",
+  "name_galery": "Hello World"
+}-->

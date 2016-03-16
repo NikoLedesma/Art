@@ -10,9 +10,6 @@
 	app.controller('ViewGaleriesController', function($scope){
 		$scope.message="this page will be used to display add student form";
 	});
-	app.controller('ViewArtistsController', function($scope){
-		$scope.message="this page will be used to display all the students";
-	});
 
 	app.controller('AddGaleryController', function($scope){
 		$scope.message="this page will be used to display all the students";
@@ -70,6 +67,43 @@
 		return service;
 
 	});
+
+
+	app.factory('IndividualArtistFactory',function(){
+		var service={};
+		
+		service.searchArtist= function(id,listArtists){
+			for (i in listArtists) {
+				if (listArtists[i].id == id) {
+					return listArtists[i];
+				}
+			}
+		};
+		return service;		
+	});
+
+
+
+
+
+
+	app.controller('ViewArtistsController', function($scope,ContactFactory,IndividualArtistFactory){
+		$scope.valueBio=false;
+		$scope.message="this page will be used to display all the students";
+		$scope.artists=ContactFactory.list();
+		$scope.artist={};
+		$scope.nameArtist="";
+		$scope.viewBiography=function(id){
+			$scope.valueBio=true;
+			$scope.artist=IndividualArtistFactory.searchArtist(id,$scope.artists);
+			$scope.nameArtist=$scope.artist.name;
+		};
+
+
+
+	});
+
+
 
 
 
